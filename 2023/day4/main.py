@@ -6,8 +6,7 @@ with open('2023/day4/input.txt') as f:
         winning_numbers = {int(num) for num in winning_numbers.split()}
         my_numbers = {int(num) for num in my_numbers.split()}
         intersection = winning_numbers.intersection(my_numbers)
-        if len(intersection) > 0:
-            result += 2**(len(intersection)-1)
+        result += 2**(len(intersection)-1) if len(intersection) > 0 else 0
 print(result)
 
 
