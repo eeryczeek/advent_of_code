@@ -1,3 +1,6 @@
+import time
+
+
 with open('2023/day5/input.txt') as f:
     lines = f.readlines()
 
@@ -20,7 +23,6 @@ for source in lines[0].split(': ')[1].split():
 print(min([int(x) for x in destinations]))
 
 
-# Part 2
 def get_conversions(lines):
     conversions = {}
     for i, line in enumerate(lines[1:]):
