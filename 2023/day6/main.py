@@ -1,8 +1,8 @@
 with open("2023/day6/input.txt") as f:
     lines = f.readlines()
 
-times = lines[0].split(":")[1].split()
-distances = lines[1].split(":")[1].split()
+times = [int(x) for x in lines[0].split(":")[1].split()]
+distances = [int(x) for x in lines[1].split(":")[1].split()]
 
 
 def try_all_times(time, distance):
@@ -15,7 +15,7 @@ def try_all_times(time, distance):
 
 summ = 1
 for time, distance in zip(times, distances):
-    summ *= try_all_times(int(time), int(distance))
+    summ *= try_all_times(time, distance)
 print(summ)
 
 
