@@ -3,7 +3,6 @@ with open("2023/day10/input.txt") as f:
 
 start = next(((i, line.find('S'))
               for i, line in enumerate(lines) if 'S' in line), None)
-
 lines = [list(line) for line in lines]
 
 y, x = start
@@ -67,6 +66,9 @@ lines_dilated = [" ".join(line) for line in lines]
 lines_dilated = ["".join(line) for line in zip(*lines_dilated)]
 lines_dilated = [" ".join(line) for line in lines_dilated]
 lines_dilated = ["".join(line) for line in zip(*lines_dilated)]
+lines_dilated = [" " + line + " " for line in lines_dilated]
+lines_dilated = [" " * len(lines_dilated[0])] + \
+    lines_dilated + [" " * len(lines_dilated[0])]
 
 
 lines_dilated = [list(line) for line in lines_dilated]
@@ -114,15 +116,7 @@ def bfs(y, x):
     return tiles
 
 
-outside = set()
-for y in range(len(lines_dilated)):
-    for x in range(len(lines_dilated[0])):
-        if y in [0, len(lines_dilated)-1] or x in [0, len(lines_dilated[0])-1]:
-            if lines_dilated[y][x] == '.':
-                outside.update(bfs(y, x))
-
-all_dots = sum(line.count('.') for line in lines_dilated)
-print(all_dots - len(outside))
+print(sum(line.count('.') for line in lines_dilated) - len(bfs(0, 0)))
 
 with open("2023/day10/output.txt", 'w') as f:
     f.write('\n'.join(lines_dilated))
