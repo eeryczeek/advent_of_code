@@ -1,5 +1,5 @@
 with open("2023/day6/input.txt") as f:
-    lines = f.readlines()
+    lines = f.read().splitlines()
 
 times = [int(x) for x in lines[0].split(":")[1].split()]
 distances = [int(x) for x in lines[1].split(":")[1].split()]

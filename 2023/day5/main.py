@@ -1,6 +1,3 @@
-import time
-
-
 with open('2023/day5/input.txt') as f:
     lines = f.readlines()
 

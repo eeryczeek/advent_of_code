@@ -81,7 +81,7 @@ class Hand:
 
 
 with open("2023/day7/input.txt") as f:
-    lines = f.readlines()
+    lines = f.read().splitlines()
 
 hands = [Hand(line[0], int(line[1]), 1)
          for line in [line.split() for line in lines]]
