@@ -3,7 +3,7 @@ with open("2023/day12/input.txt") as f:
     lines = f.read().splitlines()
 
 
-def generate_all_possible_arrangements(onsens: str, nubers: list):
+def generate_all_possible_arrangements(onsens: str, numbers: list):
     strings = []
     for number in range(2 ** onsens.count("?")):
         binary = bin(number)[2:]
@@ -18,14 +18,12 @@ def generate_all_possible_arrangements(onsens: str, nubers: list):
 listt = ['0.23', '0.44', '1.7', '1', '2.0']
 print([float(x).is_integer() for x in listt])
 
-listt = ['0.23', '0.44', '1.7', '1', '2.0']
-print([int(x).is_integer() for x in listt])
 
 result = 0
 for line in lines:
     onsens = line.split(" ")[0]
     numbers = [int(x) for x in line.split(" ")[1].split(",")]
-    for string in generate_all_possible_arrangements(onsens):
+    for string in generate_all_possible_arrangements(onsens, numbers):
         numbers_check = [x.count('#')
                          for x in string.split(".") if x.count('#') > 0]
         if numbers_check == numbers:
